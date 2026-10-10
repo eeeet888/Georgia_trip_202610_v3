@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* 秋日溫暖手帳調色盤 Autumn Warm Palette (No Pink) */
+            /* 秋日溫暖手帳調色盤 Autumn Warm Palette */
             --primary: #5D4037; /* 大地深棕 Earthy Brown */
             --secondary: #D35400; /* 楓葉焦糖橘 Burnt Orange */
             --accent: #F39C12; /* 銀杏芥末黃 Mustard Gold */
@@ -20,10 +20,10 @@
             --card-bg: #FFFFFF;
             --border-soft: #EFE4CE; 
             --highlight-bg: #FCF3CF; 
-            --tag-bg: #FBEEE6;
         }
 
         body { 
+            /* 使用可愛圓體 */
             font-family: 'Nunito', 'M PLUS Rounded 1c', sans-serif; 
             line-height: 1.7; color: var(--text-color); 
             background-color: var(--bg-color); margin: 0; padding: 0; 
@@ -103,7 +103,7 @@
         .map-link { display: inline-flex; align-items: center; background-color: var(--accent); color: var(--primary); padding: 8px 18px; border-radius: 25px; text-decoration: none; font-size: 0.9em; font-weight: 900; box-shadow: 2px 2px 0px rgba(0,0,0,0.15); transition: 0.2s;}
         .map-link:active { transform: translate(2px,2px); box-shadow: 0 0 0; }
         
-        /* Responsive Tables */
+        /* Responsive Tables (No vertical lines for cleaner look) */
         .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 15px; border-radius: 12px; border: 3px solid var(--border-soft); }
         table { width: 100%; border-collapse: collapse; min-width: 650px; font-size: 1em; }
         th, td { border-bottom: 2px solid var(--border-soft); padding: 18px; text-align: left; vertical-align: top; }
@@ -133,8 +133,7 @@
         .item-card { background: white; border: 3px solid var(--border-soft); border-radius: 15px; padding: 20px; margin-bottom: 18px; display: flex; gap:18px; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.04);}
         .item-card-col { flex-direction: column; align-items: flex-start; }
         .item-icon { font-size: 2.2em; background: var(--highlight-bg); width: 65px; height: 65px; display: flex; align-items: center; justify-content: center; border-radius: 50%; flex-shrink: 0; border: 3px solid var(--accent); box-shadow: 2px 2px 0px rgba(0,0,0,0.1);}
-        .item-info h3 { margin: 0 0 8px 0; color: var(--primary); font-size: 1.25em; font-weight: 900;}
-        .tour-tag { display: inline-block; background: var(--tag-bg); color: var(--secondary); padding: 4px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 900; margin-bottom: 8px;}
+        .item-info h3 { margin: 0 0 8px 0; color: var(--primary); font-size: 1.2em; font-weight: 900;}
         
         /* Checklist */
         .check-group { margin-bottom: 20px; }
@@ -167,7 +166,7 @@
         <button class="tab-btn active" onclick="openTab(event, 'summary')">🗺️ 導遊行前碎碎念</button>
         <button class="tab-btn" onclick="openTab(event, 'itinerary')">📅 每日精彩行程</button>
         <button class="tab-btn" onclick="openTab(event, 'checklist')">🎒 行李點點名</button>
-        <button class="tab-btn" onclick="openTab(event, 'tours')">🎫 嚴選當地團 (超多選項!)</button>
+        <button class="tab-btn" onclick="openTab(event, 'tours')">🎫 當地團懶人包</button>
         <button class="tab-btn" onclick="openTab(event, 'live')">🌤️ 天氣與航班</button>
         <button class="tab-btn" onclick="openTab(event, 'budget')">💰 吃貨預算表</button>
     </div>
@@ -209,6 +208,7 @@
         <!-- ================= TAB 2: ITINERARY ================= -->
         <div id="itinerary" class="tab-content">
             
+            <!-- Day Navigation Sub-menu -->
             <div class="day-nav">
                 <button class="day-btn" onclick="scrollToDay('day1')">D1 魔幻老城</button>
                 <button class="day-btn" onclick="scrollToDay('day2')">D2 微醺酒鄉</button>
@@ -227,23 +227,23 @@
                 <h2>D1 · 16 Oct | 抵埗與老城魔幻時刻</h2>
                 <div class="day-subtitle">✨ 第一天！跟著我漫步在歷史與現代交錯的魔幻老城吧！</div>
                 <div class="badges">
-                    <span class="badge badge-hotel">🏨 第比利斯 (Tbilisi)</span><span class="badge badge-transport">🚗 Bolt & 步行</span>
+                    <span class="badge badge-hotel">🏨 第比利斯 (Tbilisi) - 老城區</span><span class="badge badge-transport">🚗 Bolt & 步行 (Walk)</span>
                     <a href="https://www.google.com/maps/dir/Tbilisi+International+Airport/Bridge+of+Peace/Narikala+Fortress/Abanotubani/" target="_blank" class="map-link">🗺️ Google Maps 路線導航</a>
                 </div>
                 <div class="table-wrapper">
                     <table>
                         <tr><th class="col-time">Time</th><th>導遊帶你玩 (Viewpoints Details)</th><th>貼心小提醒 (Notes & Backups)</th></tr>
                         <tr><td>05:05</td>
-                            <td><h4>機場入境 (Arrival at TBS)</h4>抵達啦！第一件事我們要在機場買好 Magti 的網卡 (山裡就靠它了)。順便拿歐元換一點點拉里(GEL)現金應急。接著打開 Bolt 叫車，我們直接進城回飯店放行李！</td>
+                            <td><h4>機場入境 (Arrival at TBS)</h4>抵達啦！辛苦了！第一件事我們要在機場買好 Magti 的網卡 (山裡就靠它了)。順便拿歐元換一點點拉里(GEL)現金應急。接著打開 Bolt 叫車，我們直接進城回飯店放行李！</td>
                             <td><div class="risk">⚠️ 導遊叮嚀：機場匯率很差，換 50 歐元搭車吃飯就好。大廳來拉客的司機直接無視！</div></td></tr>
                         <tr><td>16:00</td>
-                            <td><h4>和平橋 (Bridge of Peace) & 納里卡拉要塞 (Narikala)</h4>睡飽了嗎？我們先去走那座超酷的玻璃和平橋，然後去公園搭纜車飛上天！山頂是 4 世紀的波斯要塞，往下看整個城市的秋景，還有巨大的「格魯吉亞母親像」守護著大家喔。</td>
+                            <td><h4>和平橋 (Bridge of Peace) & 納里卡拉要塞 (Narikala Fortress)</h4>睡飽了嗎？出發！我們先去走那座超酷的玻璃和平橋，然後去 Rike 公園搭纜車(6 GEL)飛上天！山頂是 4 世紀的波斯要塞，往下看整個城市的秋景，還有巨大的「格魯吉亞母親像」守護著大家喔。</td>
                             <td>
                                 <div class="pro-tip">📸 私房機位：黃昏時從要塞往下拍，古老的磚頂溫泉跟現代玻璃橋一起入鏡，賽博龐克感拉滿！</div>
                                 <div class="reminder">🥾 我們沿著石階走下山(約1.5km)，這段路有點滑，要穿好走的鞋子喔！</div>
                             </td></tr>
                         <tr><td>18:30</td>
-                            <td><h4>硫磺浴場 (Abanotubani) & 歡迎晚餐</h4>走到山下就是超美的波斯彩磚溫泉區啦！傳說國王的老鷹掉進溫泉被煮熟了，才決定在這裡建城的。晚上帶妳們去吃這趟旅行的第一顆正宗 Khinkali (湯包)！</td>
+                            <td><h4>硫磺浴場 (Abanotubani) & 歡迎晚餐</h4>走到山下就是超美的波斯彩磚溫泉區啦！傳說國王的老鷹掉進溫泉被煮熟了，才決定在這裡建城的(笑)。晚上帶妳們去吃這趟旅行的第一顆正宗 Khinkali (格魯吉亞湯包)！</td>
                             <td><div class="backup-plan"><strong>🛡️ 下雨怎麼辦:</strong> 如果下雨，我就幫妳們預訂私人的硫磺浴包廂，泡個溫泉暖暖身子！</div></td></tr>
                     </table>
                 </div>
@@ -253,27 +253,213 @@
             <div class="card" id="day2">
                 <h2>D2 · 17 Oct | 酒鄉卡赫季與愛之城 (Kakheti)</h2>
                 <div class="day-subtitle">✨ 準備好微醺了嗎？今天我們要沉浸在紅磚小鎮跟琥珀酒裡！</div>
-                <div class="badges"><span class="badge badge-hotel">🏨 第比利斯 (Tbilisi)</span><span class="badge badge-transport">🚌 當地一日團 (見當地團分頁)</span>
+                <div class="badges"><span class="badge badge-hotel">🏨 第比利斯 (Tbilisi)</span><span class="badge badge-transport">🚌 當地一日團 (Day Tour)</span>
                 <a href="https://www.google.com/maps/dir/Tbilisi/Bodbe+Monastery/Sighnaghi/Khareba+Winery/" target="_blank" class="map-link">🗺️ Google Maps 路線導航</a></div>
                 <div class="table-wrapper">
                     <table>
                         <tr><th class="col-time">Time</th><th>導遊帶你玩 (Viewpoints Details)</th><th>貼心小提醒 (Notes & Backups)</th></tr>
                         <tr><td>11:30</td>
-                            <td><h4>博德貝修道院 (Bodbe Monastery)</h4>今天跟著團出發！第一站是 9 世紀的古蹟。修道院後面有個超讚的陽台，往下看是整片阿拉扎尼(Alazani)河谷的秋天，遠方還看得到雪山喔！</td>
+                            <td><h4>博德貝修道院 (Bodbe Monastery)</h4>今天跟著一日團出發！第一站是 9 世紀的古蹟。修道院後面有個超讚的陽台，往下看是整片阿拉扎尼(Alazani)河谷的秋天，遠方還看得到雪山喔！</td>
                             <td><div class="risk">⚠️ 導遊叮嚀：女生記得把大披肩拿出來包住頭跟腿，不然修士是不會讓妳們進去的喔！</div></td></tr>
                         <tr><td>13:30</td>
                             <td><h4>西格納吉 (Sighnaghi - City of Love)</h4>來到建在山脊上的超浪漫紅磚小鎮啦！這裡有長達 4.5 公里的 18 世紀防禦城牆。因為這裡的結婚登記處 24 小時不打烊，所以叫「愛之城」，快拉著閨蜜去拍美照！</td>
                             <td><div class="reminder">🥾 我們去城牆上走一段路(約 1.5km)，吹吹秋風超舒服的！</div></td></tr>
                         <tr><td>16:00</td>
-                            <td><h4>卡列巴洞穴酒窖 (Khareba Winery)</h4>這是一個冷戰時期防禦核彈的 7.7 公里軍事隧道，現在變成超酷的酒窖！在這裡我們要品嚐聯合國非遺認證的「Qvevri 琥珀酒」，這可是 8000 年的釀酒技術喔。乾杯！</td>
+                            <td><h4>卡列巴洞穴酒窖 (Khareba Winery)</h4>哇！這是一個冷戰時期防禦核彈的 7.7 公里軍事隧道，現在變成超酷的酒窖！在這裡我們要品嚐聯合國非遺認證的「Qvevri 琥珀酒」，這可是 8000 年的釀酒技術喔。乾杯！</td>
                             <td><div class="reminder">隧道裡面常年只有 14°C，怕冷的寶貝記得帶件外套下車。</div></td></tr>
                     </table>
                 </div>
             </div>
 
-            <!-- (為了版面簡潔，此處省略 D3~D10 的重複 HTML，行程細節與上一個回應完全相同) -->
-            <div class="guide-talk">
-                （導遊小姊姊：D3 到 D10 的行程跟我們剛剛討論的一模一樣喔！地圖跟路線我都幫妳們放好了，跟著走就對啦！）
+            <!-- D3 -->
+            <div class="card" id="day3">
+                <h2>D3 · 18 Oct | 古都姆茨赫塔與絲路石窟 (Mtskheta)</h2>
+                <div class="day-subtitle">✨ 穿越時空的一天！我們去看看公元前的岩石古城！</div>
+                <div class="badges"><span class="badge badge-hotel">🏨 第比利斯 (Tbilisi)</span><span class="badge badge-transport">🚗 GoTrip包車 或 半日團</span>
+                <a href="https://www.google.com/maps/dir/Tbilisi/Jvari+Monastery/Svetitskhoveli+Cathedral/Uplistsikhe/" target="_blank" class="map-link">🗺️ Google Maps 路線導航</a></div>
+                <div class="table-wrapper">
+                    <table>
+                        <tr><th class="col-time">Time</th><th>導遊帶你玩 (Viewpoints Details)</th><th>貼心小提醒 (Notes & Backups)</th></tr>
+                        <tr><td>11:00</td>
+                            <td><h4>杰瓦里修道院 (Jvari) & 主教座堂 (Svetitskhoveli)</h4>我們先上山看 6 世紀的修道院，從這裡往下看，一條清澈、一條泥黃的河流交匯，畫面超震撼！下山後去古都，參觀傳說埋著耶穌長袍的超大教堂。</td>
+                            <td>
+                                <div class="pro-tip">💡 吃貨注意：鎮上很多賣 Churchkhela (核桃糖葫蘆) 的攤販，買幾根帶去接下來的山區當點心！</div>
+                                <div class="reminder">山頂的風很大，記得顧好妳們的帽子跟裙子！</div>
+                            </td></tr>
+                        <tr><td>15:00</td>
+                            <td><h4>烏普利斯齊赫石窟城 (Uplistsikhe Cave City)</h4>重頭戲來了！這可是古代絲綢之路上的岩鑿城市 (公元前 1000 年)！我們要在石頭鑿出來的祭祀大廳、古代劇場裡穿梭，就像走進電影場景一樣神奇！</td>
+                            <td>
+                                <div class="reminder">🥾 我們要在石頭城裡上上下下爬大概 2km。</div>
+                                <div class="risk">⚠️ 導遊嚴重警告：這裡的砂岩被踩得超級無敵滑，而且懸崖邊沒有護欄！一定要穿防滑鞋！</div>
+                                <div class="backup-plan"><strong>🛡️ 下雨怎麼辦:</strong> 石窟城只要下雨就會變溜冰場太危險，如果下雨我們就改去參觀室內的史達林博物館喔。</div>
+                            </td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- D4 -->
+            <div class="card" id="day4">
+                <h2>D4 · 19 Oct | 軍事大道與雪山教堂 (Kazbegi)</h2>
+                <div class="day-subtitle">✨ 往高山出發！最美的公路旅行，要去朝聖孤傲的雪山教堂囉！</div>
+                <div class="badges"><span class="badge badge-hotel">🏨 斯捷潘茨明達 (Stepantsminda) - 海拔 1740m</span><span class="badge badge-transport">🚗 GoTrip 專車 (行李跟著走)</span>
+                <a href="https://www.google.com/maps/dir/Tbilisi/Zhinvali+Reservoir/Ananuri+Fortress+Complex/Gudauri/Stepantsminda/" target="_blank" class="map-link">🗺️ Google Maps 路線導航</a></div>
+                <div class="table-wrapper">
+                    <table>
+                        <tr><th class="col-time">Time</th><th>導遊帶你玩 (Viewpoints Details)</th><th>貼心小提醒 (Notes & Backups)</th></tr>
+                        <tr><td>10:30</td>
+                            <td><h4>辛瓦利水庫 (Zhinvali) & 阿納努里要塞 (Ananuri)</h4>我們的 GoTrip 專車出發！第一站停靠寶石藍的水庫，旁邊有一座 13 世紀的童話古堡。教堂外牆有超精緻的生命之樹浮雕，這可是《孤獨星球》的封面取景地呢！</td>
+                            <td><div class="reminder">這條路上常有羊群逛大街，遇到時司機會停車，我們就盡情拍照吧！</div></td></tr>
+                        <tr><td>13:00</td>
+                            <td><h4>俄格友誼紀念碑 (Gudauri Panorama)</h4>哇！這是一個建在懸崖邊的巨大彩色馬賽克建築。觀景台懸浮在深淵之上，海拔高達 2200m，走出去看風景絕對會讓妳們尖叫！</td>
+                            <td><div class="risk">⚠️ 這裡海拔很高，風力強到會把人吹傻，下車前快把防風大衣穿上！</div></td></tr>
+                        <tr><td>15:30</td>
+                            <td><h4>聖母教堂 (Gergeti Trinity Church)</h4>抵達卡茲別克鎮啦！我們換乘當地越野車上山，去看那座孤傲矗立在 2170 米山頭的 14 世紀教堂。天氣好的話，背後就是 5047 米的神山冰川，超級壯觀！</td>
+                            <td>
+                                <div class="pro-tip">📸 <strong>導遊私藏機位:</strong> 下車後別跟著人群擠！跟我往教堂「左後方」的草坡爬大概 20 分鐘，我們從高處往下拍，那才是無敵明信片角度！</div>
+                                <div class="backup-plan"><strong>🛡️ 下雪封山怎麼辦:</strong> 如果雪太大上不去，我們就在鎮上超美的 Rooms Hotel 點杯熱紅酒，在室內舒舒服服賞雪山！</div>
+                            </td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- D5 -->
+            <div class="card" id="day5">
+                <h2>D5 · 20 Oct | 朱塔冰峰健行 ➔ 橫跨大穿越 (Juta)</h2>
+                <div class="day-subtitle">✨ 穿梭在金黃色的高山草甸中，下午我們要在車上睡個好覺！</div>
+                <div class="badges"><span class="badge badge-hotel">🏨 庫塔伊西 (Kutaisi)</span><span class="badge badge-transport">🚗 當地越野車 + GoTrip 跨城</span>
+                <a href="https://www.google.com/maps/dir/Stepantsminda/Juta/Kutaisi/" target="_blank" class="map-link">🗺️ Google Maps 路線導航</a></div>
+                <div class="table-wrapper">
+                    <table>
+                        <tr><th class="col-time">Time</th><th>導遊帶你玩 (Viewpoints Details)</th><th>貼心小提醒 (Notes & Backups)</th></tr>
+                        <tr><td>09:00</td>
+                            <td><h4>朱塔冰峰深度健行 (Juta Valley Trekking)</h4>早安！今天去被譽為「格魯吉亞的白雲石山」的 Juta。秋天的高山草甸整片都是金黃色的！步道終點會直面巨大的鋸齒狀雪峰，拍起來超有末日探險感！</td>
+                            <td>
+                                <div class="reminder">🥾 徒步數據：來回 7km，約 3.5 小時，慢慢走不急喔。</div>
+                                <div class="risk">⚠️ <strong>剛開始的 1km 陡坡早上可能有結冰</strong>，滑倒不是開玩笑的，防滑鞋一定要穿好！</div>
+                                <div class="backup-plan"><strong>🛡️ 雪太大怎麼辦:</strong> 如果 Juta 雪太深進不去，我們就改包車去地勢平緩的 Truso Valley (特魯索峽谷) 散步。</div>
+                            </td></tr>
+                        <tr><td>14:30</td>
+                            <td><h4>GoTrip 東西大穿越 (Cross-Country Drive)</h4>健行辛苦啦！接下來是一段長達 6 小時的公路旅行。傍晚我們會翻越 Rikoti 山口，沿途看盡秋天變色的森林，最後抵達西部大城庫塔伊西。</td>
+                            <td><div class="reminder">現在，把座椅調低，在舒適的 GoTrip 專車上安心補眠吧！我會幫妳們看路！</div></td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- D6 -->
+            <div class="card" id="day6">
+                <h2>D6 · 21 Oct | 峽谷秘境 ➔ 千塔之城 (Mestia)</h2>
+                <div class="day-subtitle">✨ 今天有精靈峽谷漂流，然後我們要進入千塔林立的世界遺產秘境！</div>
+                <div class="badges"><span class="badge badge-hotel">🏨 梅斯蒂亞 (Mestia) - 海拔 1500m (連住3晚)</span><span class="badge badge-transport">🚗 GoTrip 專車</span>
+                <a href="https://www.google.com/maps/dir/Kutaisi/Martvili+Canyon/Enguri+Dam/Mestia/" target="_blank" class="map-link">🗺️ Google Maps 路線導航</a></div>
+                <div class="table-wrapper">
+                    <table>
+                        <tr><th class="col-time">Time</th><th>導遊帶你玩 (Viewpoints Details)</th><th>貼心小提醒 (Notes & Backups)</th></tr>
+                        <tr><td>10:30</td>
+                            <td><h4>馬特維利峽谷 (Martvili Canyon)</h4>來點輕鬆的！我們去百萬年沖刷的石灰岩峽谷。搭乘橡皮艇在清澈見底的翠綠河水裡穿梭，兩邊長滿苔蘚，好像隨時會有精靈跑出來！</td>
+                            <td>
+                                <div class="reminder">現場我們買個船票 (約 20 GEL)。船上可能會濺起水花，防風外套穿著喔。</div>
+                                <div class="backup-plan"><strong>🛡️ 下大雨怎麼辦:</strong> 峽谷水位過高船就不開了，那我們就改去超酷的 Prometheus 鐘乳石洞探險！</div>
+                            </td></tr>
+                        <tr><td>15:30</td>
+                            <td><h4>因古里水壩 (Enguri Dam)</h4>途中會經過世界第二高的混凝土拱壩！被秋季彩林包圍的水庫，水色是不可思議的綠松石色，超適合當背景拍照。</td>
+                            <td><div class="risk">⚠️ 導遊廣播：過水壩後，就是長達 3 小時的「無限髮夾彎」山路！超級無敵容易暈車，請現在把暈車藥吞下去！</div></td></tr>
+                        <tr><td>18:00</td>
+                            <td><h4>梅斯蒂亞舊城區 (Mestia Old Town)</h4>我們抵達千塔之城了！這裡的石頭高塔建於 9-13 世紀，以前是為了防禦血親復仇跟雪崩蓋的。</td>
+                            <td><div class="pro-tip">📸 黃昏時，光線把塔樓染得金黃，我們去鎮上散步拍照。記得避開那些看起來有點傾斜的危塔喔！</div></td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- D7 -->
+            <div class="card" id="day7">
+                <h2>D7 · 22 Oct | 歐洲之巔：烏樹故里 (Ushguli)</h2>
+                <div class="day-subtitle">✨ 抓緊把手！今天我們要顛簸挺進歐洲最高的村落，直面冰川雪牆！</div>
+                <div class="badges"><span class="badge badge-hotel">🏨 梅斯蒂亞 (Mestia)</span><span class="badge badge-transport">🚙 拼當地 4WD 越野車</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=Ushguli+Georgia" target="_blank" class="map-link">🗺️ Google Maps 路線導航</a></div>
+                <div class="table-wrapper">
+                    <table>
+                        <tr><th class="col-time">Time</th><th>導遊帶你玩 (Viewpoints Details)</th><th>貼心小提醒 (Notes & Backups)</th></tr>
+                        <tr><td>09:00</td>
+                            <td><h4>前往烏樹故里 (Drive to Ushguli)</h4>我們去廣場找司機拼越野車！沿途一邊是峭壁一邊是深谷。顛簸抵達海拔 2100 米、由 4 個小村落組成的 Ushguli，這裡真的像時間靜止了一樣！</td>
+                            <td><div class="risk">⚠️ 導遊再三提醒：這 2.5 小時的車程路況「極度惡劣」，泥石流土路會讓妳震到懷疑人生，安全帶一定要繫好！</div></td></tr>
+                        <tr><td>12:30</td>
+                            <td><h4>Shkhara 冰川谷地徒步 (Glacier Trek)</h4>我們先去看村子最高點的教堂。然後沿著河流源頭，朝著 5193 米的格魯吉亞最高峰走去，巨大的雪牆就在眼前，太震撼了！</td>
+                            <td>
+                                <div class="reminder">🥾 我們大概走個 3.5km 就找地方野餐折返，總共 7km。</div>
+                                <div class="risk">⚠️ 秋天的路面全都是泥巴、牛大便或結冰水坑！**防水鞋絕對是救命恩人**！村裡買東西只能用小面額現金。</div>
+                                <div class="backup-plan"><strong>🛡️ 泥石流封路怎麼辦:</strong> 只要下過暴雨路就會斷，千萬別勉強。我們就乖乖留在鎮上參觀很有水準的民族博物館！</div>
+                            </td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- D8 -->
+            <div class="card" id="day8">
+                <h2>D8 · 23 Oct | 深度梅斯蒂亞 (Mestia Deep Dive)</h2>
+                <div class="day-subtitle">✨ 輕鬆的一天！選一條金黃色的冰川步道，或是搭纜車上山喝咖啡！</div>
+                <div class="badges"><span class="badge badge-hotel">🏨 梅斯蒂亞 (Mestia)</span><span class="badge badge-transport">🚶 步行 / 🚡 纜車</span></div>
+                <div class="table-wrapper">
+                    <table>
+                        <tr><th class="col-time">Time</th><th>導遊帶你玩 (Viewpoints Details)</th><th>貼心小提醒 (Notes & Backups)</th></tr>
+                        <tr><td>10:00</td>
+                            <td>
+                                <strong>方案 A：查拉迪冰川徒步 (Chalaadi Glacier) - 賞秋極品</strong><br>我們包車去登山口，然後走進秋天金黃與火紅交織的松樹林裡，終點就是冰川舌。這條路線超級唯美，而且走起來一點都不累！<br><br>
+                                <strong>方案 B：哈茨瓦利纜車 (Hatsvali Cable Car) - 上帝視角</strong><br>想偷懶的話，我們搭敞篷纜車直達山脊！坐在山頂餐廳，喝著咖啡，平視對面那座超帥的「雙耳神山」！
+                            </td>
+                            <td>
+                                <div class="reminder">🥾 方案A：路很平，來回 5km，當作散步拍照。</div>
+                                <div class="risk">⚠️ 方案B：搭敞篷纜車腳底懸空，而且高空冷風真的刺骨，請把最厚的羽絨衣拿出來穿！</div>
+                                <div class="backup-plan"><strong>🛡️ 天氣太差怎麼辦:</strong> 如果纜車停駛或下大雨，我們就在鎮上找一間有溫暖壁爐的咖啡廳，坐下來修圖聊天吃甜點！</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- D9 -->
+            <div class="card" id="day9">
+                <h2>D9 · 24 Oct | 公路旅行完美回城 (Road Trip Back)</h2>
+                <div class="day-subtitle">✨ 吃著剛出爐的甜麵包，帶著滿滿的回憶開始公路旅行囉！</div>
+                <div class="badges"><span class="badge badge-hotel">🏨 第比利斯 (Tbilisi)</span><span class="badge badge-transport">🚗 GoTrip 專車 (Mestia ➔ Tbilisi)</span>
+                <a href="https://www.google.com/maps/dir/Mestia/Dadiani+Palace/Shrosha/Tbilisi/" target="_blank" class="map-link">🗺️ Google Maps 路線導航</a></div>
+                <div class="table-wrapper">
+                    <table>
+                        <tr><th class="col-time">Time</th><th>導遊帶你玩 (Viewpoints Details)</th><th>貼心小提醒 (Notes & Backups)</th></tr>
+                        <tr><td>13:00</td>
+                            <td><h4>達迪亞尼宮殿 (Dadiani Palace, Zugdidi)</h4>下山後，我們先去逛逛 19 世紀公爵的宮殿。這裡最酷的收藏品是「拿破崙臨終的青銅面具」！</td>
+                            <td><div class="pro-tip">🍽️ 中午導遊請客！我們去吃當地最有名的 Megrelian 雙層起司厚披薩烤餅！</div></td></tr>
+                        <tr><td>16:30</td>
+                            <td><h4>什羅沙陶器市集 (Shrosha Pottery)</h4>公路兩旁堆滿了幾百個橘紅色的傳統釀酒大陶甕 (Qvevri)，超級壯觀！</td>
+                            <td><div class="reminder">坐車坐累了吧？下車伸展一下，順便拍幾張充滿異域風情的公路大片！</div></td></tr>
+                        <tr><td>17:30</td>
+                            <td><h4>蘇拉米現烤麵包 (Surami Nazuki)</h4>路邊的小木屋裡傳來超香的味道！我們去買剛出爐的肉桂葡萄乾甜麵包，這絕對是公路旅行最棒的下午茶！</td>
+                            <td>
+                                <div class="reminder">準備好零錢，熱呼呼的超級好吃。</div>
+                                <div class="backup-plan"><strong>🛡️ 塞車怎麼辦:</strong> 如果遇到山口塞車，司機會改走別條路，多一點車程也沒關係，我們在車上聽音樂唱歌！</div>
+                            </td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- D10 -->
+            <div class="card" id="day10">
+                <h2>D10 · 25 Oct | 跳蚤市場淘寶與告別 (Flea Market)</h2>
+                <div class="day-subtitle">✨ 旅程最後一天！去蘇聯舊物市集瘋狂尋寶，滿載而歸！</div>
+                <div class="badges"><span class="badge badge-transport">🚗 Bolt & ✈️ EK2201</span></div>
+                <div class="table-wrapper">
+                    <table>
+                        <tr><th class="col-time">Time</th><th>導遊帶你玩 (Viewpoints Details)</th><th>貼心小提醒 (Notes & Backups)</th></tr>
+                        <tr><td>10:00</td>
+                            <td><h4>乾橋跳蚤市場 (Dry Bridge Market)</h4>來逛高加索最大的露天古董市集啦！這裡有超多蘇聯紅軍勳章、舊底片相機，還有超美的傳統琺瑯銀飾 (Minankari)。看中什麼就買來當紀念吧！</td>
+                            <td><div class="risk">⚠️ 導遊教妳買：<strong>老闆開價，妳就對半砍！而且一定要用小面額現金</strong>。古董真假難分，買個開心就好！</div></td></tr>
+                        <tr><td>13:30</td>
+                            <td><h4>前往機場 (To Airport TBS)</h4>去超市把各色果醬、香料掃貨完畢，我們就搭 Bolt 前往機場準備搭乘 EK2201 (16:35起飛) 囉。快樂的時光總是過得特別快！</td>
+                            <td>
+                                <div class="risk">⚠️ 週末市區超容易塞車，<strong>一定要提早 3 小時出發去機場</strong>。</div>
+                                <div class="backup-plan"><strong>🛡️ 雨天備案:</strong> 下雨攤位都不出來，我們就改去 Galleria Tbilisi 百貨公司做最後血拼！</div>
+                            </td></tr>
+                    </table>
+                </div>
             </div>
 
         </div>
@@ -292,6 +478,7 @@
                             <label class="check-item"><input type="checkbox"><div class="check-text"><strong>🧥 防風防水外套 / 厚羽絨</strong><br>山上早晚是零下，風大到會哭。記得「洋蔥式穿搭」(裡層排汗、中層保暖、外層防風)。</div></label>
                             <label class="check-item"><input type="checkbox"><div class="check-text"><strong>🧤 溫暖的毛帽與手套</strong><br>卡茲別克山上吹冷風會頭痛，保護頭部跟雙手超重要。</div></label>
                             <label class="check-item"><input type="checkbox"><div class="check-text"><strong>🧣 女生必備：超大披肩/圍巾</strong><br>進教堂必備神器！拿來包頭、把腿圍起來當長裙，平時還能當拍照道具！</div></label>
+                            <label class="check-item"><input type="checkbox"><div class="check-text"><strong>🕶️ 墨鏡與高係數防曬</strong><br>高山紫外線超強，雪地反光很刺眼，不想曬黑記得帶。</div></label>
                         </div>
                     </div>
                     <div class="grid-item">
@@ -301,131 +488,50 @@
                             <label class="check-item"><input type="checkbox"><div class="check-text"><strong>💊 暈車藥 (必帶星星⭐)</strong><br>去山區有上千個髮夾彎，容易暈車的寶貝千萬別忘記。</div></label>
                             <label class="check-item"><input type="checkbox"><div class="check-text"><strong>🔌 萬用轉接頭</strong><br>格魯吉亞是用歐洲的雙圓孔插座 (Type C/F，220V)。</div></label>
                             <label class="check-item"><input type="checkbox"><div class="check-text"><strong>📱 下載好 Bolt & Maps.me App</strong><br>Bolt 拿來叫車防被坑；Maps.me 記得先載好離線地圖，山裡沒訊號就靠它找路了。</div></label>
+                            <label class="check-item"><input type="checkbox"><div class="check-text"><strong>🎫 護照與旅遊險證明</strong><br>確認一下保險有沒有涵蓋海外醫療與班機延誤，安心出門。</div></label>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ================= TAB 5: TOURS (Expanded with 3 Options Each!) ================= -->
+        <!-- ================= TAB 5: TOURS ================= -->
         <div id="tours" class="tab-content">
             <div class="card" style="border-left-color: var(--accent);">
-                <h2>🎫 導遊精選當地團懶人包 (Curated Tour Options)</h2>
-                <div class="guide-talk">
-                    寶貝們！針對沒包車的那幾天（D2 酒鄉、D3 古都、D7 高山），導遊小姊姊幫妳們每一天都找了 <strong>3 種不同風格的選項</strong>！從「便宜大碗交朋友」到「尊榮私人包車睡到飽」，妳們看自己當天的心情跟預算來決定，點擊按鈕就可以直接去 GYG 預訂囉！
-                </div>
+                <h2>🎫 導遊精選當地懶人包 (Curated Day Tours)</h2>
+                <p>針對沒包車的那幾天，導遊小姊姊幫妳們在 GetYourGuide 上精挑細選了幾個評價超高的當地團，點進去直接訂，免去自己找車的煩惱喔！</p>
 
-                <!-- D2 Options -->
-                <h3 style="color:var(--secondary); margin-top:25px; border-bottom:2px dashed var(--border-soft); padding-bottom:10px;">🍷 D2 (17 Oct) - 卡赫季酒鄉 (Kakheti) 三種玩法</h3>
+                <h3 style="color:var(--secondary); margin-top:20px; border-bottom:2px dashed var(--border-soft); padding-bottom:5px;">🍷 D2 (17 Oct) - 卡赫季酒鄉出發</h3>
                 <div class="grid-2">
                     <div class="item-card item-card-col">
                         <div class="item-info">
-                            <span class="tour-tag">🚌 高CP值大巴團</span>
-                            <h3>選項 A: 酒鄉全日遊與西格納吉</h3>
-                            <p style="font-size: 0.95em; color: var(--text-color);">行程最滿！包含麵包烘焙參觀、Bodbe 修道院、Sighnaghi 城牆漫步，最後去超酷的 7.7 公里隧道酒窖 (Khareba) 品嚐多款葡萄酒。</p>
-                            <p style="font-size: 0.9em; margin-bottom: 5px;"><span style="color:var(--success-color); font-weight:bold;">🙋‍♀️ 適合誰:</span> 什麼都想看、想認識各國背包客、追求最高性價比的女孩。</p>
-                            <p style="font-size: 0.9em;"><span style="color:var(--risk-color); font-weight:bold;">⚡ 避雷針:</span> 團員通常有 20-30 人，每個景點有時間限制，拍照不能拍太久喔。</p>
+                            <h3>1. 酒鄉全日遊與西格納吉</h3>
+                            <p style="font-size: 0.9em; margin-bottom: 5px;"><span style="color:var(--success-color); font-weight:bold;">👍 導遊推薦理由:</span> 價格超便宜，還包品酒，CP值爆表懶人首選！</p>
+                            <p style="font-size: 0.9em;"><span style="color:var(--risk-color); font-weight:bold;">👎 小小缺點:</span> 大巴團人比較多，要注意集合時間喔。</p>
                         </div>
-                        <a href="https://www.getyourguide.com/s?q=Kakheti+Wine+Sighnaghi" target="_blank" class="btn">查看 GYG 詳情與比價</a>
+                        <a href="https://www.getyourguide.com/s?q=Kakheti+Wine+Sighnaghi" target="_blank" class="btn">手刀前往 GYG 預訂</a>
                     </div>
-                    
                     <div class="item-card item-card-col">
                         <div class="item-info">
-                            <span class="tour-tag">🚗 尊榮私人包車</span>
-                            <h3>選項 B: 卡赫季 VIP 品酒與手作體驗</h3>
-                            <p style="font-size: 0.95em; color: var(--text-color);">專車來飯店接妳們！除了看風景，最特別的是安排去當地農家，親手體驗製作 Churchkhela (核桃糖葫蘆) 跟烘烤格魯吉亞麵包 (Shoti)，然後在酒莊尊榮品酒！</p>
-                            <p style="font-size: 0.9em; margin-bottom: 5px;"><span style="color:var(--success-color); font-weight:bold;">🙋‍♀️ 適合誰:</span> 預算充足、喜歡深度文化體驗、想要兩個人獨享時光的閨蜜。</p>
-                            <p style="font-size: 0.9em;"><span style="color:var(--risk-color); font-weight:bold;">⚡ 避雷針:</span> 兩個人平攤下來的費用會比大巴團貴 3-4 倍喔。</p>
+                            <h3>2. 愛之城與修道院浪漫半日團</h3>
+                            <p style="font-size: 0.9em; margin-bottom: 5px;"><span style="color:var(--success-color); font-weight:bold;">👍 導遊推薦理由:</span> 適合不想喝太多酒，想專心拍秋天美照的女孩。</p>
+                            <p style="font-size: 0.9em;"><span style="color:var(--risk-color); font-weight:bold;">👎 小小缺點:</span> 會錯過超酷的防核彈隧道酒窖。</p>
                         </div>
-                        <a href="https://www.getyourguide.com/s?q=Kakheti+Private+Tour+Masterclass" target="_blank" class="btn">查看 GYG 詳情與比價</a>
-                    </div>
-
-                    <div class="item-card item-card-col">
-                        <div class="item-info">
-                            <span class="tour-tag">📸 網美慢活半日</span>
-                            <h3>選項 C: 愛之城與修道院浪漫半日遊</h3>
-                            <p style="font-size: 0.95em; color: var(--text-color);">砍掉漫長的酒莊參觀與品酒。專心帶妳們去 Bodbe 修道院看阿拉扎尼河谷秋景，然後把剩下的時間全留給 Sighnaghi 紅磚小鎮讓妳們瘋狂街拍！</p>
-                            <p style="font-size: 0.9em; margin-bottom: 5px;"><span style="color:var(--success-color); font-weight:bold;">🙋‍♀️ 適合誰:</span> 不愛喝酒、只想睡晚一點出門、專注於秋日攝影的女孩。</p>
-                            <p style="font-size: 0.9em;"><span style="color:var(--risk-color); font-weight:bold;">⚡ 避雷針:</span> 會錯過卡赫季最核心的「地底防空洞酒窖」體驗，有點可惜。</p>
-                        </div>
-                        <a href="https://www.getyourguide.com/s?q=Sighnaghi+Bodbe+Half+Day" target="_blank" class="btn">查看 GYG 詳情與比價</a>
+                        <a href="https://www.getyourguide.com/s?q=Sighnaghi+Bodbe" target="_blank" class="btn">手刀前往 GYG 預訂</a>
                     </div>
                 </div>
 
-                <!-- D3 Options -->
-                <h3 style="color:var(--secondary); margin-top:35px; border-bottom:2px dashed var(--border-soft); padding-bottom:10px;">🕍 D3 (18 Oct) - 姆茨赫塔古都 (Mtskheta) 三種玩法</h3>
+                <h3 style="color:var(--secondary); margin-top:20px; border-bottom:2px dashed var(--border-soft); padding-bottom:5px;">🏔️ D7 (22 Oct) - 梅斯蒂亞出發</h3>
                 <div class="grid-2">
                     <div class="item-card item-card-col">
                         <div class="item-info">
-                            <span class="tour-tag">🚌 歷史控大巴團</span>
-                            <h3>選項 A: 姆茨赫塔 & 石窟城 穿越一日遊</h3>
-                            <p style="font-size: 0.95em; color: var(--text-color);">最經典的路線！早上看 Jvari 修道院雙河交匯，逛 Svetitskhoveli 大教堂；下午長途驅車前往公元前 1000 年的 Uplistsikhe 絲路岩鑿城市探險。</p>
-                            <p style="font-size: 0.9em; margin-bottom: 5px;"><span style="color:var(--success-color); font-weight:bold;">🙋‍♀️ 適合誰:</span> 體力好、喜歡聽英文導遊講歷史故事的女孩。</p>
-                            <p style="font-size: 0.9em;"><span style="color:var(--risk-color); font-weight:bold;">⚡ 避雷針:</span> 下午去石窟城的車程有點長，上車記得補眠。</p>
+                            <h3>1. 烏樹故里 4WD 越野車拼車團</h3>
+                            <p style="font-size: 0.9em; margin-bottom: 5px;"><span style="color:var(--success-color); font-weight:bold;">👍 導遊推薦理由:</span> 這是去歐洲最高村落唯一、也是最安全的交通方式，必選！</p>
+                            <p style="font-size: 0.9em;"><span style="color:var(--risk-color); font-weight:bold;">👎 小小缺點:</span> 車上會比較擠，跟各國背包客擠一起顛2.5小時。</p>
                         </div>
-                        <a href="https://www.getyourguide.com/s?q=Mtskheta+Uplistsikhe+Tour" target="_blank" class="btn">查看 GYG 詳情與比價</a>
-                    </div>
-
-                    <div class="item-card item-card-col">
-                        <div class="item-info">
-                            <span class="tour-tag">🚗 私人包車全覽</span>
-                            <h3>選項 B: 姆茨赫塔 + 石窟城 + 哥里 專屬包車</h3>
-                            <p style="font-size: 0.95em; color: var(--text-color);">除了經典的古都與石窟城，專車還會帶妳們繞去哥里 (Gori)，參觀極具爭議的「史達林博物館」與他出生的故居，行程自由度極高！</p>
-                            <p style="font-size: 0.9em; margin-bottom: 5px;"><span style="color:var(--success-color); font-weight:bold;">🙋‍♀️ 適合誰:</span> 想要一天之內解鎖所有周邊城市，且不想等其他團員的效率派。</p>
-                            <p style="font-size: 0.9em;"><span style="color:var(--risk-color); font-weight:bold;">⚡ 避雷針:</span> 景點門票 (石窟城、博物館) 通常不含在包車費用內，需現場自費。</p>
-                        </div>
-                        <a href="https://www.getyourguide.com/s?q=Mtskheta+Uplistsikhe+Gori+Private" target="_blank" class="btn">查看 GYG 詳情與比價</a>
-                    </div>
-
-                    <div class="item-card item-card-col">
-                        <div class="item-info">
-                            <span class="tour-tag">☕ 輕鬆耍廢半日</span>
-                            <h3>選項 C: 姆茨赫塔古都 輕鬆半日遊</h3>
-                            <p style="font-size: 0.95em; color: var(--text-color);">不到處奔波！只帶妳們上山看 Jvari 修道院的大景，然後在姆茨赫塔古城的石板路上悠閒散步、買糖葫蘆、喝土耳其咖啡，中午就回第比利斯！</p>
-                            <p style="font-size: 0.9em; margin-bottom: 5px;"><span style="color:var(--success-color); font-weight:bold;">🙋‍♀️ 適合誰:</span> 覺得前幾天太累，今天只想輕鬆散步，下午想回第比利斯老城逛街的人。</p>
-                            <p style="font-size: 0.9em;"><span style="color:var(--risk-color); font-weight:bold;">⚡ 避雷針:</span> 會錯過超酷的 Uplistsikhe 絲路石窟城，那可是幾千年的古蹟啊！</p>
-                        </div>
-                        <a href="https://www.getyourguide.com/s?q=Mtskheta+Half+Day+Tour" target="_blank" class="btn">查看 GYG 詳情與比價</a>
+                        <a href="https://www.getyourguide.com/s?q=Ushguli+4wd" target="_blank" class="btn">手刀前往 GYG 預訂</a>
                     </div>
                 </div>
-
-                <!-- D7 Options -->
-                <h3 style="color:var(--secondary); margin-top:35px; border-bottom:2px dashed var(--border-soft); padding-bottom:10px;">🏔️ D7 (22 Oct) - 梅斯蒂亞與高山 (Svaneti) 三種玩法</h3>
-                <div class="grid-2">
-                    <div class="item-card item-card-col">
-                        <div class="item-info">
-                            <span class="tour-tag">🚙 熱血背包客</span>
-                            <h3>選項 A: 烏樹故里 (Ushguli) 越野車拼車團</h3>
-                            <p style="font-size: 0.95em; color: var(--text-color);">最經典的雪山行程！在廣場跟各國背包客一起擠上 Mitsubishi Delica 越野車。經過 2.5 小時的泥濘爛路顛簸，抵達歐洲最高村落 Ushguli 看冰川！</p>
-                            <p style="font-size: 0.9em; margin-bottom: 5px;"><span style="color:var(--success-color); font-weight:bold;">🙋‍♀️ 適合誰:</span> 體力好、不怕暈車、想用最經濟的方式抵達神級秘境的女孩。</p>
-                            <p style="font-size: 0.9em;"><span style="color:var(--risk-color); font-weight:bold;">⚡ 避雷針:</span> 車內空間非常狹窄，避震很差，沿途無法隨心所欲要求司機停車拍照。</p>
-                        </div>
-                        <a href="https://www.getyourguide.com/s?q=Ushguli+4wd+Group" target="_blank" class="btn">查看 GYG 詳情與比價</a>
-                    </div>
-
-                    <div class="item-card item-card-col">
-                        <div class="item-info">
-                            <span class="tour-tag">🚙 尊榮私人越野</span>
-                            <h3>選項 B: 烏樹故里 專屬私人 4WD 越野車</h3>
-                            <p style="font-size: 0.95em; color: var(--text-color);">妳們兩個人包下一整台強悍的越野車！後座空間超大可以躺，看到絕美的秋季峽谷或瀑布，隨時叫司機停車讓妳們下來拍網美照！</p>
-                            <p style="font-size: 0.9em; margin-bottom: 5px;"><span style="color:var(--success-color); font-weight:bold;">🙋‍♀️ 適合誰:</span> 容易暈車需要大空間、想要隨時停車攝影、預算夠的閨蜜。</p>
-                            <p style="font-size: 0.9em;"><span style="color:var(--risk-color); font-weight:bold;">⚡ 避雷針:</span> 因為只有兩個人分攤一台越野車，價格會是拼車團的 3 倍左右喔。</p>
-                        </div>
-                        <a href="https://www.getyourguide.com/s?q=Ushguli+Private+4wd" target="_blank" class="btn">查看 GYG 詳情與比價</a>
-                    </div>
-
-                    <div class="item-card item-card-col">
-                        <div class="item-info">
-                            <span class="tour-tag">🚡 怕暈車完美備案</span>
-                            <h3>選項 C: 查拉迪冰川徒步 ＆ 敞篷纜車一日遊</h3>
-                            <p style="font-size: 0.95em; color: var(--text-color);">直接放棄去 Ushguli 的顛簸爛路！導遊帶妳們走超級唯美平緩的 Chalaadi 松樹林冰川步道，下午再去搭 Hatsvali 敞篷纜車，在山頂喝咖啡看雙耳神山。</p>
-                            <p style="font-size: 0.9em; margin-bottom: 5px;"><span style="color:var(--success-color); font-weight:bold;">🙋‍♀️ 適合誰:</span> 極度容易暈車、不想被震到骨頭散掉，只想美美地在秋林裡散步的人。</p>
-                            <p style="font-size: 0.9em;"><span style="color:var(--risk-color); font-weight:bold;">⚡ 避雷針:</span> 放棄了前往「歐洲最高村落」打卡的虛榮感，但換來了無價的舒適與好心情！</p>
-                        </div>
-                        <a href="https://www.getyourguide.com/s?q=Mestia+Chalaadi+Hatsvali" target="_blank" class="btn">查看 GYG 詳情與比價</a>
-                    </div>
-                </div>
-
             </div>
         </div>
 
@@ -439,29 +545,42 @@
                     <a href="https://www.google.com/search?q=EK2201+flight+status" target="_blank" class="btn" style="background:var(--primary)">🛬 25 Oct | EK2201 (TBS➔DXB)</a>
                     <a href="https://www.google.com/search?q=EK0382+flight+status" target="_blank" class="btn" style="background:var(--primary)">🛬 27 Oct | EK0382 (DXB➔HKG)</a>
                 </div>
+                <div class="reminder" style="margin-top:15px;">
+                    ⚠️ 導遊提醒：在杜拜 (DXB) 轉機時，記得留意航廈之間的接駁巴士時間喔 (預留 1-2 小時比較保險)。
+                </div>
             </div>
 
             <div class="card">
                 <h2>🌤️ 出門前必看！5大城市天氣預報 (Weather)</h2>
+                <p>10月的高加索就像個任性的小孩，<strong>「平地很舒服、高山冷到哭」</strong>！每天早上出門前，記得點開這裡看一下即時溫度喔。</p>
+                
                 <div class="grid-2">
                     <div class="grid-item">
                         <h3 style="color: var(--primary);">📍 第比利斯 (Tbilisi) - 首都</h3>
+                        <p style="font-size: 0.9em; margin-bottom: 10px; color: #7f8c8d;">平原秋季，穿美美的風衣剛剛好。</p>
+                        <div style="font-size:0.9em; margin-bottom:10px;"><strong>🌞 早上</strong> 10-14°C | <strong>☀️ 下午</strong> 18-22°C | <strong>🌙 晚上</strong> 12-15°C</div>
                         <a class="weatherwidget-io" href="https://forecast7.com/en/41d7144d83/tbilisi/" data-label_1="TBILISI" data-theme="pure" >TBILISI</a>
                     </div>
                     <div class="grid-item" style="background:#FCF3CF; border-color:var(--accent);">
                         <h3 style="color: var(--secondary);">📍 卡茲別克 (Kazbegi) - 東部高山</h3>
+                        <p style="font-size: 0.9em; margin-bottom: 10px; color: #7f8c8d;">海拔 1700m，很冷！隨時會下雪喔！</p>
+                        <div style="font-size:0.9em; margin-bottom:10px;"><strong>❄️ 早上</strong> -2~5°C | <strong>⛅ 下午</strong> 8-12°C | <strong>🥶 晚上</strong> -5~2°C</div>
                         <a class="weatherwidget-io" href="https://forecast7.com/en/42d6644d64/stepantsminda/" data-label_1="KAZBEGI" data-theme="pure" >KAZBEGI</a>
                     </div>
                     <div class="grid-item" style="background:#FCF3CF; border-color:var(--accent);">
                         <h3 style="color: var(--secondary);">📍 梅斯蒂亞 (Mestia) - 西部高山</h3>
+                        <p style="font-size: 0.9em; margin-bottom: 10px; color: #7f8c8d;">海拔 1500m，山谷冷風吹來很過癮。</p>
+                        <div style="font-size:0.9em; margin-bottom:10px;"><strong>❄️ 早上</strong> 0-6°C | <strong>⛅ 下午</strong> 10-14°C | <strong>🥶 晚上</strong> -2~4°C</div>
                         <a class="weatherwidget-io" href="https://forecast7.com/en/43d0442d73/mestia/" data-label_1="MESTIA" data-theme="pure" >MESTIA</a>
                     </div>
                     <div class="grid-item">
                         <h3 style="color: var(--primary);">📍 庫塔伊西 (Kutaisi) - 西部大城</h3>
+                        <div style="font-size:0.9em; margin-bottom:10px;"><strong>🌞 早上</strong> 12-16°C | <strong>☀️ 下午</strong> 19-23°C | <strong>🌙 晚上</strong> 13-16°C</div>
                         <a class="weatherwidget-io" href="https://forecast7.com/en/42d2742d72/kutaisi/" data-label_1="KUTAISI" data-theme="pure" >KUTAISI</a>
                     </div>
                     <div class="grid-item">
                         <h3 style="color: var(--primary);">📍 西格納吉 (Sighnaghi) - 酒鄉</h3>
+                        <div style="font-size:0.9em; margin-bottom:10px;"><strong>🌞 早上</strong> 9-13°C | <strong>☀️ 下午</strong> 16-20°C | <strong>🌙 晚上</strong> 10-13°C</div>
                         <a class="weatherwidget-io" href="https://forecast7.com/en/41d6245d92/sighnaghi/" data-label_1="SIGHNAGHI" data-theme="pure" >SIGHNAGHI</a>
                     </div>
                 </div>
@@ -476,40 +595,65 @@
                 <div class="table-wrapper">
                     <table>
                         <tr><th>花費項目 (Item)</th><th>導遊估算細節 (Details)</th><th>預估 (HKD)</th></tr>
-                        <tr><td><strong>🏨 美美住宿 (9 Nights)</strong></td><td>以平均每晚 $800 HKD 的高評分精品房來算。</td><td><strong>\$ 7,200</strong></td></tr>
-                        <tr><td><strong>🚗 舒適交通 (Transport)</strong></td><td>Bolt + 4段 GoTrip 跨城包車 + 當地越野車。</td><td><strong>\$ 4,050</strong></td></tr>
+                        <tr><td><strong>🏨 美美住宿 (9 Nights)</strong></td><td>以平均每晚 $800 HKD 的高評分精品/景觀房來算。睡得好才有體力玩！</td><td><strong>\$ 7,200</strong></td></tr>
+                        <tr><td><strong>🚗 舒適交通 (Transport)</strong></td><td>Bolt 接駁 + 4段 GoTrip 跨城包車 + 當地越野車。花錢買舒適與安全絕對值得。</td><td><strong>\$ 4,050</strong></td></tr>
                         <tr><td><strong>🎟️ 行程與門票 (Tours)</strong></td><td>酒鄉團 + 峽谷漂流 + 石窟門票。</td><td><strong>\$ 600</strong></td></tr>
                         <tr><td><strong>🍽️ 吃貨大餐 (Food)</strong></td><td>每天吃好喝好 + 買點伴手禮回家。</td><td><strong>\$ 4,000</strong></td></tr>
                         <tr style="background:var(--primary); color:white;">
-                            <td colspan="2" style="text-align: right; font-size: 1.2em;"><strong>閨蜜雙人總預算 (Total for 2):</strong></td>
+                            <td colspan="2" style="text-align: right; font-size: 1.2em;"><strong>閨蜜雙人總預算 (Total for 2):</strong><br><span style="font-size:0.7em; font-weight:normal;">(約每人 HKD \$7,925，不含機票喔)</span></td>
                             <td style="font-size: 1.3em;"><strong>\$ 15,850</strong></td>
                         </tr>
                     </table>
+                </div>
+                <div class="reminder" style="margin-top: 15px;">
+                    💡 <strong>導遊理財小建議：</strong> 大城市餐廳都可以刷卡。但包車司機、跳蚤市場跟深山裡，<strong>只收 GEL 現金</strong>！帶歐元去市區分批換最划算。
                 </div>
             </div>
 
             <div class="card">
                 <h2>🍷 吃貨必修課！當地美食指南 (Food Guide)</h2>
+                <p>減肥是回家後的事！來到高加索就是要大口吃肉、大口喝酒！這幾樣沒吃到不准上飛機喔！</p>
                 <div class="grid-2">
                     <div class="item-card">
                         <div class="item-icon">🥟</div>
                         <div class="item-info">
                             <h3>Khinkali (超巨湯包)</h3>
-                            <p style="font-size:0.95em; margin:0; color:#555;">最上面的硬麵結不要吃掉喔，留著算妳吃了幾顆！</p>
+                            <p style="font-size:0.95em; margin:0; color:#555;">要徒手抓著麵結，咬破邊緣吸湯汁。<strong>最上面的硬麵結不要吃掉喔，留著算妳吃了幾顆！</strong></p>
                         </div>
                     </div>
                     <div class="item-card">
                         <div class="item-icon">🧀</div>
                         <div class="item-info">
                             <h3>Khachapuri (起司船)</h3>
-                            <p style="font-size:0.95em; margin:0; color:#555;">把半熟蛋跟起司攪拌一起吃，熱量爆表但快樂也爆表！</p>
+                            <p style="font-size:0.95em; margin:0; color:#555;">國民邪惡美食！必點 <em>Adjarian</em> (把半熟蛋跟起司攪拌一起吃)，熱量爆表但快樂也爆表！</p>
+                        </div>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-icon">🍡</div>
+                        <div class="item-info">
+                            <h3>Churchkhela (核桃糖葫蘆)</h3>
+                            <p style="font-size:0.95em; margin:0; color:#555;">把核桃串起來浸泡在葡萄糖漿裡風乾。長得像香腸，卻是爬山時最棒的天然能量棒！</p>
                         </div>
                     </div>
                     <div class="item-card">
                         <div class="item-icon">🍷</div>
                         <div class="item-info">
                             <h3>Qvevri Wine (陶甕琥珀酒)</h3>
-                            <p style="font-size:0.95em; margin:0; color:#555;">白酒會變成超美的琥珀色！來一杯微醺的秋天吧。</p>
+                            <p style="font-size:0.95em; margin:0; color:#555;">把葡萄連皮丟進大陶甕埋在地底發酵，白酒會變成超美的琥珀色！來一杯微醺的秋天吧。</p>
+                        </div>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-icon">🥩</div>
+                        <div class="item-info">
+                            <h3>Mtsvadi (葡萄藤烤肉串)</h3>
+                            <p style="font-size:0.95em; margin:0; color:#555;">用葡萄藤木炭烤出來的肉串，搭配生洋蔥跟靈魂 <em>Tkemali</em> (酸梅醬) 一起吃，解膩又過癮！</p>
+                        </div>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-icon">🍹</div>
+                        <div class="item-info">
+                            <h3>Tarragon Lemonade (綠色汽水)</h3>
+                            <p style="font-size:0.95em; margin:0; color:#555;">顏色超螢光綠的國民飲料！喝起來有一股淡淡的甘草味，配著油膩的湯包一起喝簡直絕配。</p>
                         </div>
                     </div>
                 </div>
@@ -535,6 +679,7 @@
         document.getElementById(tabName).classList.add("active");
         evt.currentTarget.className += " active";
         
+        // 滑動到適合手機閱讀的位置
         if(window.innerWidth <= 768) {
             window.scrollTo({ top: 220, behavior: 'smooth' });
         }
